@@ -102,7 +102,7 @@ EOL
 echo_success ".env file has been created."
 
 # Define Conda environment details
-ENV_NAME="longpi"
+ENV_NAME="longpibench"
 PYTHON_VERSION="3.10.14"
 
 # Check if the Conda environment already exists
