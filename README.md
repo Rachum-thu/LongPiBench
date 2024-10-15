@@ -59,16 +59,13 @@ To investigate the impact of query contextualization, the script would be:
 
 ```bash
 bash eval/eval_head.sh
-```
-
-```bash
 bash eval/eval_tail.sh
 ```
 
 For each script, you can change the configuration of tasks, models, instance length, data num and query position. The results will be saved at `res`. Then you can use the following script for visualization:
 
 ```bash
-python res/visualize.py
+python visual/visualize.py
 ```
 
 ## Results
@@ -87,6 +84,3 @@ Contributions are welcome! Please submit issues and pull requests to help improv
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-
-
