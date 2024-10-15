@@ -136,8 +136,8 @@ def draw_regular_model_graph(ax, model):
     ax (matplotlib.axes.Axes): The axes object to draw on.
     model (str): Name of the model.
     """
-    absolute_data = analyze_task_model('final_table_sql_absolute', model)
-    relative_data = analyze_task_model('final_table_sql_relative', model)
+    absolute_data = analyze_task_model('table_sql_absolute', model)
+    relative_data = analyze_task_model('table_sql_relative', model)
 
     if not absolute_data and not relative_data:
         logging.warning(f"No available data to plot for model: {model}")
@@ -220,7 +220,7 @@ def main():
 
     # Draw absolute position charts for Qwen series
     fig, ax = plt.subplots(figsize=(4, 3))  # 4x3 figure size
-    draw_qwen_graph(ax, 'final_table_sql_absolute', QWEN_ABSOLUTE_COLORS)
+    draw_qwen_graph(ax, 'table_sql_absolute', QWEN_ABSOLUTE_COLORS)
 
     # Construct save path and filename
     filename = f"Qwen_Series_absolute.png"
@@ -234,7 +234,7 @@ def main():
 
     # Draw relative position charts for Qwen series
     fig, ax = plt.subplots(figsize=(4, 3))  # 4x3 figure size
-    draw_qwen_graph(ax, 'final_table_sql_relative', QWEN_RELATIVE_COLORS)
+    draw_qwen_graph(ax, 'table_sql_relative', QWEN_RELATIVE_COLORS)
 
     # Construct save path and filename
     filename = f"Qwen_Series_relative.png"
