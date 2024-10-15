@@ -126,4 +126,5 @@ dmypy.json
 # Data file should not be put in the github repository
 data/
 res/
-
+original_res/
+__MACOSX/

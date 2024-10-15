@@ -32,9 +32,9 @@ bash setup.sh
 
 This Bash script will do the following things: 
 
-- **Data Download and Extraction**: Downloads necessary data files (`data.zip` and `original_res.zip`) from specified URLs and extracts their contents into designated directories (`data` and `res`). If the directories don't exist after extraction, the script creates them. 
+- **Data Download and Extraction**: Downloads necessary data files (`data.zip` and `original_res.zip`) from specified URLs and extracts their contents into designated directories (`data` and `original_res`).
 - **Environment Configuration**: Generates a `.env` file where you can input required API keys and URLs for various services. 
-- **Conda Environment Setup**: Creates and activates a Conda environment named `longpi` with Python version `3.10.14`. If the environment already exists, it skips creation. 
+- **Conda Environment Setup**: Creates and activates a Conda environment named `longpibench` with Python version `3.10.14`. 
 - **Python Dependencies Installation**: Upgrades `pip`, installs the Python packages listed in `requirements.txt`, and installs the local package in editable mode.
 
 Remember to populate .env for the API keys. You may change API base of each model by modifying the script in  `src/llm` if you want to use different API platforms or use your local implementation. 
@@ -70,10 +70,6 @@ For each script, you can change the configuration of tasks, models, instance len
 ```bash
 python res/visualize.py
 ```
-
-## Dataset
-
-LongPiBench includes 7,680 instances of multiple tasks across different input lengths. The dataset is designed to test models at varying levels of absolute and relative positional bias. Each instance contains 10 relevant pieces of information.
 
 ## Results
 

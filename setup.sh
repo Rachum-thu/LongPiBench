@@ -146,6 +146,7 @@ rm data.zip
 rm original_res.zip
 
 mkdir res
+conda activate longpibench
 
 echo_success "Setup completed successfully!"
 echo_info "Please fill in the necessary API keys in the .env file."
