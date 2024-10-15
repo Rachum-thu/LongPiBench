@@ -68,11 +68,9 @@ fi
 echo_info "Downloading original_res.zip from $ORIGINAL_RES_URL ..."
 wget -O "$ORIGINAL_RES_ZIP" "$ORIGINAL_RES_URL" || { echo_error "Failed to download original_res.zip"; exit 1; }
 
-# 修改部分开始：将 original_res.zip 解压到 original_res 目录
 echo_info "Extracting $ORIGINAL_RES_ZIP to 'original_res' directory ..."
 unzip -q "$ORIGINAL_RES_ZIP" -d "original_res" || { echo_error "Failed to extract $ORIGINAL_RES_ZIP"; exit 1; }
 
-# 验证 extraction 是否成功
 if [ ! -d "original_res" ]; then
     echo_info "'original_res' directory not found after extraction. Creating it."
     mkdir original_res
@@ -81,10 +79,9 @@ else
     echo_success "'original_res' directory exists."
 fi
 
-# 可选：列出解压后的目录内容以供调试
 echo_info "Listing contents of 'original_res' directory:"
 ls -la original_res
-# 修改部分结束
+
 
 # Create .env file with environment variables
 echo_info "Creating .env file ..."
@@ -144,6 +141,11 @@ else
     echo_error "No setup.py or pyproject.toml found. Cannot install local package."
     exit 1
 fi
+
+rm data.zip
+rm original_res.zip
+
+mkdir res
 
 echo_success "Setup completed successfully!"
 echo_info "Please fill in the necessary API keys in the .env file."
