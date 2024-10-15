@@ -17,7 +17,7 @@ load_dotenv('.env')
 memory = Memory(location=".cache", verbose=0)
 
 # Initialize the OpenAI client using the API key for the wizard model
-client = OpenAI(api_key=os.environ.get("DEEP_INF_API_KEY"), base_url=os.environ.get("DEEP_INF_BASE"))
+client = OpenAI(api_key=os.environ.get("YOUR_DEEP_INF_API_KEY"), base_url=os.environ.get("YOUR_DEEP_INF_BASE"))
 
 def retry_callback(retry_state):
     """

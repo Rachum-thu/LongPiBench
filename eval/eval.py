@@ -9,8 +9,8 @@ from dense.eval import EquationSolutionMetric, HistoryReorderMetric, SQLMetric
 Metric = {
     "history_reorder_absolute": HistoryReorderMetric,
     "history_reorder_relative": HistoryReorderMetric,
-    "final_table_sql_absolute": SQLMetric,
-    "final_table_sql_relative": SQLMetric,
+    "table_sql_absolute": SQLMetric,
+    "table_sql_relative": SQLMetric,
     "equation_solution_absolute": EquationSolutionMetric,
     "equation_solution_relative": EquationSolutionMetric,
 }
