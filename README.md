@@ -6,12 +6,16 @@
 
 LongPiBench evaluates how well long-context LLMs handle tasks that involve multiple relevant information pieces distributed throughout the input context. The benchmark focuses on two types of positional biases:
 
+![Illustration of Absolute and Relative Positions](fig/position.png)
+
 - **Absolute Positional Bias**: The position of relevant information in the input (beginning, middle, end).
 - **Relative Positional Bias**: The spacing between relevant information pieces and how densely they are distributed across the context.
 
 The benchmark includes tasks of varying complexity and spans four different input lengths: 32K, 64K, 128K, and 256K tokens.
 
 ## Key Features
+
+![Construction of the Benchmark](fig/construction.png)
 
 - **Comprehensive Evaluation**: LongPiBench is the most comprehensive benchmark for isolating and analyzing positional biases in long-context LLMs. It tests the impact of both absolute and relative positional biases on model performance.
 - **Diverse Tasks**: The benchmark contains three primary tasks:
@@ -37,7 +41,14 @@ This Bash script will do the following things:
 - **Conda Environment Setup**: Creates and activates a Conda environment named `longpibench` with Python version `3.10.14`. 
 - **Python Dependencies Installation**: Upgrades `pip`, installs the Python packages listed in `requirements.txt`, and installs the local package in editable mode.
 
-Remember to populate .env for the API keys. You may change API base of each model by modifying the script in  `src/llm` if you want to use different API platforms or use your local implementation. 
+Remember to populate .env for the API keys. 
+
+``````
+YOUR_OPENAI_API_KEY=...
+YOUR_OPENAI_BASE_URL=...
+``````
+
+You may change API base of each model by modifying the script in  `src/llm` if you want to use different API platforms or use your local implementation. 
 
 ## Usage
 
@@ -70,12 +81,14 @@ python visual/visualize.py
 
 ## Results
 
+![Main Results of Our Evaluation](fig/result.png)
+
 Our experiments highlight several key findings:
 
 - While most current models are robust against the "lost in the middle" phenomenon, they exhibit significant biases related to the spacing between relevant information pieces.
 - Model performance sharply declines as the distance between relevant pieces increases, though some robustness is observed with larger models.
 
-The original response are downloaded with the setup.sh script. You can have a good look at it in the `orginal_res` directory.
+The original response are downloaded with the setup.sh script. You can have a good look at it in the `orginal_res` directory. More results can be find in the [paper](figs/paper.pdf).
 
 ## Contributing
 
