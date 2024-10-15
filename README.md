@@ -25,24 +25,51 @@ The benchmark includes tasks of varying complexity and spans four different inpu
 To install and run the LongPiBench benchmark, follow these steps:
 
 ```bash
-git clone https://github.com/your-repo/LongPiBench.git
+git clone https://github.com/Rachum-thu/LongPiBench.git
 cd LongPiBench
-pip install -r requirements.txt
+bash setup.sh
 ```
+
+This Bash script will do the following things: 
+
+- **Data Download and Extraction**: Downloads necessary data files (`data.zip` and `original_res.zip`) from specified URLs and extracts their contents into designated directories (`data` and `res`). If the directories don't exist after extraction, the script creates them. 
+- **Environment Configuration**: Generates a `.env` file where you can input required API keys and URLs for various services. 
+- **Conda Environment Setup**: Creates and activates a Conda environment named `longpi` with Python version `3.10.14`. If the environment already exists, it skips creation. 
+- **Python Dependencies Installation**: Upgrades `pip`, installs the Python packages listed in `requirements.txt`, and installs the local package in editable mode.
+
+Remember to populate .env for the API keys. You may change API base of each model by modifying the script in  `src/llm` if you want to use different API platforms or use your local implementation. 
 
 ## Usage
 
-You can run the benchmark using the provided script. Here is an example command:
+You can run the benchmark using the provided script. 
+
+Run this command to debug with a small scale of testing data.
 
 ```bash
-python run_benchmark.py --task table_sql --model gpt-4 --input_length 64k
+bash eval/debug.sh
 ```
 
-Arguments:
+Then use this command to eval through the whole dataset.
 
-- `--task`: The task to evaluate (`table_sql`, `timeline_reordering`, `equation_solving`).
-- `--model`: The language model to evaluate.
-- `--input_length`: The length of the input context (e.g., 32K, 64K, 128K, 256K).
+```bash
+bash eval/eval.sh
+```
+
+To investigate the impact of query contextualization, the script would be:
+
+```bash
+bash eval/eval_head.sh
+```
+
+```bash
+bash eval/eval_tail.sh
+```
+
+For each script, you can change the configuration of tasks, models, instance length, data num and query position. The results will be saved at `res`. Then you can use the following script for visualization:
+
+```bash
+python res/visualize.py
+```
 
 ## Dataset
 
@@ -55,7 +82,7 @@ Our experiments highlight several key findings:
 - While most current models are robust against the "lost in the middle" phenomenon, they exhibit significant biases related to the spacing between relevant information pieces.
 - Model performance sharply declines as the distance between relevant pieces increases, though some robustness is observed with larger models.
 
-For detailed experimental results, please refer to the paper [here](#).
+The original response are downloaded with the setup.sh script. You can have a good look at it in the `orginal_res` directory.
 
 ## Contributing
 
@@ -65,7 +92,5 @@ Contributions are welcome! Please submit issues and pull requests to help improv
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Citation
 
-If you find the benchmark helpful, please consider citing out paper.
 

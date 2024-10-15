@@ -6,7 +6,7 @@ COMMERCIAL_MODELS=("claude" "gpt" "glm" "gemini" "deepseek")
 MODELS=("${OPEN_SOURCE_MODELS[@]}" "${COMMERCIAL_MODELS[@]}")
 
 # Define the list of tasks
-TASKS=("final_table_sql_absolute" "final_table_sql_relative")
+TASKS=("table_sql_absolute" "table_sql_relative")
 
 # Common parameters
 LENGTH_LOWER_BOUND=32000
