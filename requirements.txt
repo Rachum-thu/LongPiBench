@@ -1,9 +1,0 @@
-fire==0.6.0
-joblib==1.4.2
-matplotlib==3.9.2
-openai==1.51.2
-python-dotenv==1.0.1
-setuptools==75.1.0
-tenacity==9.0.0
-tqdm==4.66.5
-zhipuai==2.1.5.20230904
