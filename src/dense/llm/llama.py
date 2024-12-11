@@ -40,7 +40,7 @@ def retry_callback(retry_state):
 @memory.cache  # Cache the function result to avoid duplicate API calls
 def llama3_single_generate(
     input_dict,
-    model="meta/llama-3.1-70b-instruct",
+    model="meta-llama/Meta-Llama-3.1-70B-Instruct",
     temp=0.0,
     top_p=0.9,
 ):
@@ -76,7 +76,7 @@ def llama3_single_generate(
 
 def llama3_generate(
     inputs,
-    model="meta/llama-3.1-70b-instruct",
+    model="meta-llama/Meta-Llama-3.1-70B-Instruct",
     temp=0.0,
     top_p=0.9,
     mute_tqdm=False,
@@ -117,15 +117,16 @@ def llama3_generate(
 
 
 if __name__ == "__main__":
+    user_message = """Anarchism is a political philosophy that advocates self-governed societies based on voluntary institutions. These are often described as stateless societies, although several authors have defined them more specifically as institutions based on non-hierarchical free associations. Anarchism holds the state to be undesirable, unnecessary and harmful. 
+
+According to this, Anachism opposes [MASK]
+
+Give several candidates for noun for the [MASK] placeholder"""
     input_list = [
         {
             "system_prompt": "You are a helpful assistant.",
-            "user_message": "I want to know about AI.",
-        },
-        {
-            "system_prompt": "You are a helpful assistant.",
-            "user_message": "Tell me about climate change.",
-        },
+            "user_message": user_message,
+        }
     ]
     responses = llama3_generate(input_list)
     print(responses)
