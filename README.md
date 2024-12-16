@@ -13,10 +13,6 @@ LongPiBench evaluates how well long-context LLMs handle tasks that involve multi
 
 The benchmark includes tasks of varying complexity and spans four different input lengths: 32K, 64K, 128K, and 256K tokens.
 
-## Key Features
-
-![Construction of the Benchmark](figs/construction.png)
-
-- **Comprehensive Evaluation**: LongPiBench is the most comprehensive benchmark for isolating and analyzing positional biases in long-context LLMs. It tests the impact of both absolute and relative positional biases on model performance.
-- **Diverse Tasks**: The benchmark contains three primary tasks:
+## Notice
+- This repo will be have a major updated soon.
  
